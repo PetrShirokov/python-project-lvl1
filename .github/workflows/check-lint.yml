@@ -5,6 +5,8 @@ on:
 
 jobs:
 
+  linter-run:
+
     runs-on:  ubuntu-latest
 
     steps:
