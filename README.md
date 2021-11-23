@@ -4,3 +4,4 @@
 ### asciicast:
 brain-even https://asciinema.org/a/15AYuhHYxZ5rr8cOuxcW2ZYZc
 brain-calc https://asciinema.org/a/WeKC3q3JbsLMMeh1QWbIdf8Or
+brain-gcd https://asciinema.org/a/zOqDjQHvukn6fdOYFsUm6mWDC
