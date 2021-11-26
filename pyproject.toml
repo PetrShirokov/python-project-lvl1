@@ -1,8 +1,14 @@
 [tool.poetry]
 name = "hexlet-code"
 version = "0.1.0"
-description = "ShPU's first Python project!"
+description = "Brain-games. ShPU's first Python project!"
 authors = ["Shirokov Petr <pshirokov1984@mail.ru>"]
+repository = "https://github.com/PetrShirokov/python-project-lvl1"
+classifiers = [
+"License :: Free for non-commercial use",
+"Programming Language :: Python :: 3.8",
+"Topic :: Games/Entertainment"
+]
 packages = [ {include = "brain_games" }, ]
 
 [tool.poetry.dependencies]
@@ -22,4 +28,4 @@ brain-even = "brain_games.scripts.brain_even:main"
 brain-calc = "brain_games.scripts.brain_calc:main"
 brain-gcd = "brain_games.scripts.brain_gcd:main"
 brain-progression = "brain_games.scripts.brain_progression:main"
-
+brain-prime = "brain_games.scripts.brain_prime:main"

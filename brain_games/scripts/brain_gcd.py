@@ -1,12 +1,10 @@
 #!/usr/bin/env python
-from brain_games.cli import print_before_welcome, welcome_user
-from brain_games.games.gcd import game_gcd
+from brain_games.games_body import play_game
 
 
 def main():
-    print_before_welcome()
-    welcome_user()
-    game_gcd()
+    game_name = 'gcd'
+    play_game(game_name)
 
 
 if __name__ == '__main__':

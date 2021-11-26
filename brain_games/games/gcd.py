@@ -1,23 +1,16 @@
-from random import randint
-import prompt
-from brain_games.cli import print_message, bye_user
-from brain_games.logic import max_common_divisor
-
-
-def game_gcd():
-    k = 0
-    print('Find the greatest common divisor of given numbers.')
-    while k < 3:
-        number1 = randint(1, 99)
-        number2 = randint(1, 99)
-        question = 'Question: {} {}'.format(number1, number2)
-        print(question)
-        answer = prompt.string('Your answer: ')
-        right_answer = str(max_common_divisor(number1, number2))
-        print_message(answer, right_answer)
-        if answer == right_answer:
-            k = k + 1
-        else:
-            k = 666
-    if k == 3:
-        bye_user()
+def max_common_divisor(num1, num2):
+    """Returns the greatest common divisor of
+    two positive (> 0) integer numbers."""
+    min_common_divisor = 1
+    min_num = min(num1, num2)
+    max_num = max(num1, num2)
+    if max_num % min_num == 0:
+        return min_num
+    supposed_result_of_division = 2
+    max_result_of_division = min_num // 2
+    while supposed_result_of_division <= max_result_of_division:
+        divisor = min_num // supposed_result_of_division
+        if (max_num % divisor == 0) and (min_num % divisor == 0):
+            return divisor
+        supposed_result_of_division += 1
+    return min_common_divisor
