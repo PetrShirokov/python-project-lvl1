@@ -1,3 +1,6 @@
+uninstall:
+	python3 -m pip uninstall hexlet-code
+
 build:
 	poetry build
 
