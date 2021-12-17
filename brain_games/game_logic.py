@@ -1,36 +1,28 @@
 import prompt
-from brain_games.cli import welcome_user, congratulate_user
-from brain_games.cli import print_response_message
 
 
-def print_head_message():
-    head_message = 'Welcome to the Brain Games!'
-    print(head_message)
-
-
-def print_task_message(task):
+def play_game(task, gen_game_data):
+    print('Welcome to the Brain Games!')
+    name = prompt.string("May I have your name? ")
+    hi_string = 'Hello, {}!'.format(name)
+    print(hi_string)
     print(task)
-
-
-def receive_the_answer():
-    global user_answer
-    user_answer = prompt.string('Your answer: ')
-
-
-def play_game(task, questions_list, right_answers_list):
-    print_head_message()
-    welcome_user()
-    print_task_message(task)
     questions_count = 0
-    upper_index_of_questions_list = len(questions_list) - 1
-    while (questions_count <= upper_index_of_questions_list):
-        current_question = questions_list[questions_count]
-        print(current_question)
-        receive_the_answer()
-        right_answer = str(right_answers_list[questions_count])
-        print_response_message(user_answer, right_answer)
-        if (user_answer != right_answer):
-            break
-        if questions_count == upper_index_of_questions_list:
-            congratulate_user()
+    NUMBER_OF_QUESTIONS = 3
+    while (questions_count < NUMBER_OF_QUESTIONS):
+        current_question, right_answer = list(gen_game_data())
+        full_question = 'Question: {}'.format(current_question)
+        print(full_question)
+        user_answer = prompt.string('Your answer: ')
+        if user_answer == right_answer:
+            print('Correct!')
+        else:
+            sentence1 = ("'{}' is a wrong answer ;(. ").format(user_answer)
+            sentence2 = ("Correct answer was '{}'. ").format(right_answer)
+            sentence3 = ("Let's try again, {}!").format(name)
+            message = sentence1 + sentence2 + sentence3
+            print(message)
+            return
         questions_count += 1
+    congratulation_string = "Congratulations, {}!".format(name)
+    print(congratulation_string)

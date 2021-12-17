@@ -21,18 +21,9 @@ def find_gcd(num1, num2):
     return min_common_divisor
 
 
-def gen_game_data(number_of_questions: int):
-    """Returns 2 lists with the equal lenghts
-    len(list1) = len(list2) = number_of_questions.
-    First list contains questions for the game.
-    Second contains right answers on the same positions."""
-    questions_list = list()
-    right_answers_list = list()
-    for questions_count in range(0, number_of_questions):
-        random_number1 = randint(1, 99)
-        random_number2 = randint(1, 99)
-        question = 'Question: {} {}'.format(random_number1, random_number2)
-        questions_list.append(question)
-        right_answer = find_gcd(random_number1, random_number2)
-        right_answers_list.append(right_answer)
-    return questions_list, right_answers_list
+def gen_game_data():
+    random_number1 = randint(1, 99)
+    random_number2 = randint(1, 99)
+    question_content = '{} {}'.format(random_number1, random_number2)
+    right_answer = str(find_gcd(random_number1, random_number2))
+    return (question_content, right_answer)
