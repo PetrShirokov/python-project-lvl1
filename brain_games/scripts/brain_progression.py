@@ -3,7 +3,7 @@
 
 from brain_games.games.progression import TASK_MESSAGE as task
 from brain_games.games.progression import gen_game_data as game_data
-from brain_games.game_logic import play_game
+from brain_games.engine import play_game
 
 
 def main():
