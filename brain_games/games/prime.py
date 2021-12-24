@@ -17,7 +17,7 @@ def is_prime(num: int):
 
 
 def gen_game_data():
-    random_number = randint(2, 99)
-    question_content = str(random_number)
-    right_answer = 'yes' if is_prime(random_number) else 'no'
-    return (question_content, right_answer)
+    NUM_FOR_QUESTION = randint(2, 99)
+    question_content = str(NUM_FOR_QUESTION)
+    right_answer = 'yes' if is_prime(NUM_FOR_QUESTION) else 'no'
+    return question_content, right_answer

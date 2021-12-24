@@ -3,34 +3,25 @@ from random import randint
 TASK_MESSAGE = 'What number is missing in the progression?'
 
 
-def build_progression():
-    """Returns list with the terms of increasing arithmetic progression.
-    Progression has random length (from 5 to 10 terms) and random
-    common difference (from 1 to 10)."""
-    a = randint(1, 20)  # initial term
-    d = randint(1, 10)  # common difference
-    n_max = randint(5, 10)  # length of the progression
-    progression = [a]
-    for n in range(1, n_max):
-        a += d
-        progression.append(a)
+def build_progression(initial_term, common_diff, length):
+    finite_term = initial_term + (length - 1) * common_diff
+    progression = list(range(initial_term, finite_term + 1, common_diff))
     return progression
 
 
-def transform_to_str(seq):
-    seq_str = ''
-    for n in range(0, len(seq)):
-        end = ' '
-        if n == len(seq) - 1:
-            end = ''
-        seq_str += str(seq[n]) + end
-    return seq_str
+def progression_to_str(progression, index_hidden_term):
+    for n in range(0, len(progression)):
+        progression[n] = str(progression[n])
+    progression[index_hidden_term] = '..'
+    return " ".join(progression)
 
 
 def gen_game_data():
-    progression = build_progression()
-    index_h = randint(0, len(progression) - 1)  # index of hidden term
-    hidden_term, progression[index_h] = progression[index_h], '..'
-    question_content = transform_to_str(progression)
-    right_answer = str(hidden_term)
-    return (question_content, right_answer)
+    INITIAL_TERM = randint(1, 20)
+    COMMON_DIFF = randint(1, 10)
+    LENGTH = randint(5, 10)
+    progression = build_progression(INITIAL_TERM, COMMON_DIFF, LENGTH)
+    INDEX_HIDDEN_TERM = randint(0, LENGTH - 1)
+    right_answer = str(progression[INDEX_HIDDEN_TERM])
+    question_content = progression_to_str(progression, INDEX_HIDDEN_TERM)
+    return question_content, right_answer
