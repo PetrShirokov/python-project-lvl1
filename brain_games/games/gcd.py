@@ -22,8 +22,10 @@ def find_gcd(num1, num2):
 
 
 def gen_game_data():
-    NUM1_FOR_QSTN = randint(1, 99)
-    NUM2_FOR_QSTN = randint(1, 99)
-    question_content = '{} {}'.format(NUM1_FOR_QSTN, NUM2_FOR_QSTN)
-    right_answer = str(find_gcd(NUM1_FOR_QSTN, NUM2_FOR_QSTN))
+    NUM1_RANGE = (1, 99)
+    NUM2_RANGE = (1, 99)
+    num1 = randint(NUM1_RANGE[0], NUM1_RANGE[1])
+    num2 = randint(NUM2_RANGE[0], NUM2_RANGE[1])
+    question_content = '{} {}'.format(num1, num2)
+    right_answer = str(find_gcd(num1, num2))
     return question_content, right_answer

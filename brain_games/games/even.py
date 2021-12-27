@@ -8,7 +8,9 @@ def is_even(number):
 
 
 def gen_game_data():
-    NUM_FOR_QUESTION = randint(1, 99)
-    question_content = str(NUM_FOR_QUESTION)
-    right_answer = 'yes' if is_even(NUM_FOR_QUESTION) else 'no'
+    NUM_LOWER_BOUND = 1
+    NUM_UPPER_BOUND = 99
+    num_for_question = randint(NUM_LOWER_BOUND, NUM_UPPER_BOUND)
+    question_content = str(num_for_question)
+    right_answer = 'yes' if is_even(num_for_question) else 'no'
     return question_content, right_answer

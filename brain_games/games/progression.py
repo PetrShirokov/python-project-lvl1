@@ -17,11 +17,15 @@ def progression_to_str(progression, index_hidden_term):
 
 
 def gen_game_data():
-    INITIAL_TERM = randint(1, 20)
-    COMMON_DIFF = randint(1, 10)
-    LENGTH = randint(5, 10)
-    progression = build_progression(INITIAL_TERM, COMMON_DIFF, LENGTH)
-    INDEX_HIDDEN_TERM = randint(0, LENGTH - 1)
-    right_answer = str(progression[INDEX_HIDDEN_TERM])
-    question_content = progression_to_str(progression, INDEX_HIDDEN_TERM)
+    INITIAL_TERM_RANGE = (1, 20)
+    COM_DIFF_RANGE = (1, 10)
+    MIN_LENGTH = 5
+    MAX_LENGTH = 10
+    initial_term = randint(INITIAL_TERM_RANGE[0], INITIAL_TERM_RANGE[1])
+    common_diff = randint(COM_DIFF_RANGE[0], COM_DIFF_RANGE[1])
+    length = randint(MIN_LENGTH, MAX_LENGTH)
+    progression = build_progression(initial_term, common_diff, length)
+    index_hidden_term = randint(0, length - 1)
+    right_answer = str(progression[index_hidden_term])
+    question_content = progression_to_str(progression, index_hidden_term)
     return question_content, right_answer
